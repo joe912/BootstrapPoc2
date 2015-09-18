@@ -35,64 +35,7 @@
             color: white;
         }
         
-        .verco-tile img:hover {
-            -webkit-animation: zoomTile 1s ease-out 1;
-            -moz-animation: zoomTile 1s ease-out 1;
-            animation: zoomTile 1s ease-out 1;
-            -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-        }
-        
-        @-webkit-keyframes zoomTile {
-            0% {
-                -webkit-transform: scale(1, 1);
-                -moz-transform: scale(1, 1);
-                -ms-transform: scale(1, 1);
-                -o-transform: scale(1, 1);
-                transform: scale(1, 1)
-            }
-            100% {
-                -webkit-transform: scale(1.1, 1.1);
-                -moz-transform: scale(1.1, 1.1);
-                -ms-transform: scale(1.1, 1.1);
-                -o-transform: scale(1.1, 1.1);
-                transform: scale(1.1, 1.1)
-            }
-        }
-        
-        @-moz-keyframes zoomTile {
-            0% {
-                -webkit-transform: scale(1, 1);
-                -moz-transform: scale(1, 1);
-                -ms-transform: scale(1, 1);
-                -o-transform: scale(1, 1);
-                transform: scale(1, 1)
-            }
-            100% {
-                -webkit-transform: scale(1.1, 1.1);
-                -moz-transform: scale(1.1, 1.1);
-                -ms-transform: scale(1.1, 1.1);
-                -o-transform: scale(1.1, 1.1);
-                transform: scale(1.1, 1.1)
-            }
-        }
-        
-        @keyframes zoomTile {
-            0% {
-                -webkit-transform: scale(1, 1);
-                -moz-transform: scale(1, 1);
-                -ms-transform: scale(1, 1);
-                -o-transform: scale(1, 1);
-                transform: scale(1, 1)
-            }
-            100% {
-                -webkit-transform: scale(1.1, 1.1);
-                -moz-transform: scale(1.1, 1.1);
-                -ms-transform: scale(1.1, 1.1);
-                -o-transform: scale(1.1, 1.1);
-                transform: scale(1.1, 1.1)
-            }
-        }
+  
         
         .verco-tile-comply {
             background-color: #87A9B5;
@@ -138,39 +81,41 @@
         .verco-table-row-title {
             font-size: large;
         }
+        
+        
         /* entire container, keeps perspective */
         
-        .flip-container {
+        .verco-flip-container {
             perspective: 1000;
             transform-style: preserve-3d;
         }
         /*  UPDATED! flip the pane when hovered */
         
-        .flip-container:hover .back {
+        .verco-flip-container:hover .verco-back {
             transform: rotateY(0deg);
         }
         
-        .flip-container:hover .front {
+        .verco-flip-container:hover .verco-front {
             transform: rotateY(180deg);
         }
         
-        .flip-container,
-        .front,
-        .back {
+        .verco-flip-container,
+        .verco-front,
+        .verco-back {
             width: 100%;
             min-height: 242px;
         }
         /* flip speed goes here */
         
-        .flipper {
+        .verco-flipper {
             transition: 0.6s;
             transform-style: preserve-3d;
             position: relative;
         }
         /* hide back of pane during swap */
         
-        .front,
-        .back {
+        .verco-front,
+        .verco-back {
             backface-visibility: hidden;
             transition: 0.6s;
             transform-style: preserve-3d;
@@ -181,34 +126,28 @@
         }
         /*  UPDATED! front pane, placed above back */
         
-        .front {
+        .verco-front {
             z-index: 2;
             transform: rotateY(0deg);
         }
         /* back, initially hidden pane */
         
-        .back {
+        .verco-back {
             transform: rotateY(-180deg);
+            background-color: #ed6d19 ;
         }
-        /* 
-	Some vertical flip updates 
-*/
+
         
-        .vertical.flip-container {
-            position: relative;
+         .verco-tile-homepage-back-title {
+            padding-top: 2em;
+            
         }
-        
-        .vertical .back {
-            transform: rotateX(180deg);
+       .verco-tile-homepage-back-intro {
+            text-align: center;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
         }
-        
-        .vertical.flip-container:hover .back {
-            transform: rotateX(0deg);
-        }
-        
-        .vertical.flip-container:hover .front {
-            transform: rotateX(180deg);
-        }
+
     </style>
 </head>
 
@@ -261,16 +200,20 @@
     <div class='container'>
         <div class="row clearfix">
             <div class="col-md-4 column">
-                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                    <div class="flipper">
-                        <div class="front">
+                <div class="verco-flip-container" ontouchstart="this.classList.toggle('hover');">
+                    <div class="verco-flipper">
+                        <div class="verco-front">
                             <div class="verco-tile verco-tile-homepage verco-tile-comply">
                             <div><img alt="" src="images/comply.png" rel="1510" id="__mcenew" /></div>
                             <div class="verco-tile-text verco-tile-homepage-text">Comply</div>
                         </div>
                         </div>
-                        <div class="back">
-                            <div>back</div>
+                        <div class="verco-back">
+                            <div class="verco-tile verco-tile-homepage">
+                                <div class="verco-tile-homepage-back-title"><h4>Comply</h4></div>
+                                <div class="verco-tile-homepage-back-intro">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley...</div>
+                                <div class="verco-tile-text verco-tile-homepage-text">Read More</div>
+                             </div>
                         </div>
                     </div>
                 </div>

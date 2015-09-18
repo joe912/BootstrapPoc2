@@ -116,19 +116,31 @@
         .verco-table-row-title {
             font-size: x-large;
         }
+        
+        .hover {
+            background-color: rgba(248, 248, 248, 1);
+            border: 1px solid rgba(220, 220, 220, 1);
+        }
+        .fire{
+            color: red;
+        }
     </style>
 </head>
 
 <body>
     <h1>Hello, world! Trying again from vs code after running git push -u origin master from bash</h1>
-<p>this is on master </p>
+    <p>this is on master </p>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <table class="table  table-striped">
+                    <colgroup></colgroup>
+                    <colgroup></colgroup>
+                    <colgroup></colgroup>
+                    <colgroup></colgroup>
                     <thead>
                         <tr>
-                            <td></td>
+                            <td>dummy</td>
                             <th>
                                 <div class="verco-tile verco-tile-comply">
                                     <div><img src="images/comply.png" alt="comply" /></div>
@@ -214,9 +226,48 @@
         </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!--<script src="js/bootstrap.min.js"></script>-->
+    <script>
+        (function($) {
+
+            $.fn.column = function() {
+                return $(this)
+                .filter('th, td')
+                .filter(':not([colspan])')
+                .closest('table')
+                .find('tr')
+                .filter(':not(:has([colspan]))')
+                .children(':nth-child(' + ($(this).index()+1) + ')');
+            }
+            
+            })(jQuery);
+
+        $(document).ready(function(){
+            alert('ready');
+
+            $("table").delegate('th','mouseover mouseleave', function(e) {
+                if (e.type == 'mouseover') {
+                    //$(this).parent().addClass("hover");
+                    $("colgroup").eq($(this).index()).addClass("hover");
+                    
+                    var $tds = $(this).column();
+                    console.log($tds.length);
+                    console.log($tds.find('span.glyphicon').length);
+                    $tds.find('span.glyphicon').addClass("fire");
+                }
+                else {
+                    //$(this).parent().removeClass("hover");
+                    $("colgroup").eq($(this).index()).removeClass("hover");
+                    var $tds = $(this).column();
+                    $tds.find('span.glyphicon').removeClass("fire");
+ 
+                }
+            });
+
+        });
+    </script>
 </body>
 
 </html>
