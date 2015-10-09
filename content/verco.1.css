@@ -1,0 +1,244 @@
+.verco-text-brand {
+	color: #ed6d19 !important;
+		}
+
+.verco-text-dark {
+	color: #626466 !important;
+		}
+.verco-text-light {
+	color: #ffffff !important;
+		}
+
+/* Blockquotes */
+.verco-blockquote-wider {
+	padding: 0 5%;
+}
+.verco-blockquote-fullwidth {
+	padding: 0 0%;
+}
+
+/*
+ * Homepage tiles
+ */
+        .verco-tile-homepage {
+			position: relative;
+			/* border: 1px solid red; */
+            min-height: 245px;
+        }
+
+        .verco-tile-homepage img{
+            width: 180px;
+        }
+
+        .verco-tile {
+            text-align: center;
+            color: white;
+        }
+        
+        .verco-tile-comply {
+            background-color: #87A9B5;
+        }
+        
+        .verco-tile-reduce {
+            background-color: #A5BFB4;
+        }
+        
+        .verco-tile-lead {
+            background-color: #E3D193;
+        }
+        
+        .verco-tile-text {
+            background-color: rgba(0, 0, 0, 0.2);
+            margin-top: -1em;
+            padding-bottom: 0.5em;
+            padding-top: 0.5em;
+            opacity: 0.8;
+            /*border: 1px solid red;*/
+			font-size: large;
+			font-weight: bold;
+        }
+
+        .verco-tile-homepage-text {
+			position: absolute;
+			bottom: 0px;
+			right: 0px;
+			width: 100%;
+			font-size: x-large;
+			/*border: 1px solid black; */
+		}   
+
+        .verco-tile-text:hover {
+            opacity: 1;
+        }
+        
+        .verco-tick {
+            text-align: center;
+			font-size: large;
+        }
+
+        .verco-table-row-title {
+            font-size: large;
+			
+        }
+
+/*
+ * Homepage tile flipping
+ */
+/* entire container, keeps perspective */
+        
+        .verco-flip-container {
+            perspective: 1000;
+            transform-style: preserve-3d;
+        }
+        
+        .verco-flip-container:hover .verco-back {
+            transform: rotateY(0deg);
+        }
+        
+        .verco-flip-container:hover .verco-front {
+            transform: rotateY(180deg);
+        }
+        
+        .verco-flip-container,
+        .verco-front,
+        .verco-back {
+            width: 100%;
+            min-height: 242px;
+        }
+        
+        .verco-flipper {
+            transition: 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        
+        .verco-front,
+        .verco-back {
+            backface-visibility: hidden;
+            transition: 0.6s;
+            transform-style: preserve-3d;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .verco-front {
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+        
+        .verco-back {
+            transform: rotateY(-180deg);
+            background-color: rgba(245, 245, 245, 1); /*#ed6d19 ;*/
+        }
+        
+		.verco-front a { 
+			color: #ffffff  ;
+		}
+		
+		.verco-back a { 
+			color: #ed6d19  ;
+		}
+		
+		.verco-back .verco-tile-homepage-text:hover{
+						cursor: pointer;	
+		}
+						
+         .verco-tile-homepage-back-title {
+            padding-top: 2em;
+		}
+
+		.verco-tile-homepage-back-title h4 {
+			color: #ed6d19  ;
+			font-weight: bold;
+		}
+
+       .verco-tile-homepage-back-intro {
+            text-align: center;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+			color: #5e5e5e;
+			line-height: 1.4;
+        }
+
+/*
+ * Tiles on the services page -
+ *            1. background color hover effect used to highlight current column
+ *            2. zoom transition (cannot apply to homepage as interferes with flipping
+ */
+		.verco-service-table-hover{
+					background-color: rgba(237, 237, 237, 1); 
+		}
+
+        .verco-service-tile img:hover {
+            -webkit-animation: zoomTile 0.7s ease-out 1;
+            -moz-animation: zoomTile 0.7s ease-out 1;
+            animation: zoomTile 0.7s ease-out 1;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+        
+        @-webkit-keyframes zoomTile {
+            0% {
+                -webkit-transform: scale(1, 1);
+                -moz-transform: scale(1, 1);
+                -ms-transform: scale(1, 1);
+                -o-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+            100% {
+                -webkit-transform: scale(1.2, 1.2);
+                -moz-transform: scale(1.2, 1.2);
+                -ms-transform: scale(1.2, 1.2);
+                -o-transform: scale(1.2, 1.2);
+                transform: scale(1.2, 1.2)
+            }
+        }
+        
+        @-moz-keyframes zoomTile {
+            0% {
+                -webkit-transform: scale(1, 1);
+                -moz-transform: scale(1, 1);
+                -ms-transform: scale(1, 1);
+                -o-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+            100% {
+                -webkit-transform: scale(1.2, 1.2);
+                -moz-transform: scale(1.2, 1.2);
+                -ms-transform: scale(1.2, 1.2);
+                -o-transform: scale(1.2, 1.2);
+                transform: scale(1.2, 1.2)
+            }
+        }
+        
+        @keyframes zoomTile {
+            0% {
+                -webkit-transform: scale(1, 1);
+                -moz-transform: scale(1, 1);
+                -ms-transform: scale(1, 1);
+                -o-transform: scale(1, 1);
+                transform: scale(1, 1)
+            }
+            100% {
+                -webkit-transform: scale(1.2, 1.2);
+                -moz-transform: scale(1.2, 1.2);
+                -ms-transform: scale(1.2, 1.2);
+                -o-transform: scale(1.2, 1.2);
+                transform: scale(1.2, 1.2)
+            }
+        }
+							
+/*
+ * Internet Explorer fallbacks
+ */
+@media screen and (min-width:0) and (min-resolution: .001dpcm) { 
+ // IE9 CSS
+	.verco-back{ background-color:white;}
+}
+@media \0screen {
+// IE8 CSS
+    .verco-back{ background-color:white;}
+}
+					
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

@@ -1,0 +1,141 @@
+/*
+ * Homepage tiles
+ */
+.verco-flip-container {
+        text-align: center; 
+	    font-family: 'Open Sans';
+        /*border: 1px solid #d7d7d7;      */
+}
+.verco-tile-text, .verco-tile-readmore {
+        padding: 2em;
+}
+ .verco-tile-text a{
+   
+    text-decoration: none;
+    font-family: 'Open Sans';
+    font-size: xx-large;
+	cursor: pointer;
+}
+.verco-tile-readmore a{
+   
+    text-decoration: none;
+    font-family: 'Open Sans';
+    font-size: large;
+	cursor: pointer;
+}
+.verco-tile-comply a, .verco-tile-comply h4, .verco-tile-comply span{
+         color: #3a9b61;
+}
+.verco-tile-reduce a, .verco-tile-reduce h4, .verco-tile-reduce span{
+         color: #e64d1d;
+}
+.verco-tile-lead a, .verco-tile-lead h4, .verco-tile-lead span{
+         color: #1e70b7;
+}
+
+.verco-tile-homepage-back-title h4 {
+	font-size: xx-large;
+}
+
+/************************************/
+/* flipping */
+/************************************/
+.verco-flip-container {
+	perspective: 1000;
+	transform-style: preserve-3d;
+}
+	/*  UPDATED! flip the pane when hovered */
+.verco-flip-container:hover .verco-back {
+		transform: rotateY(0deg);
+	}
+.verco-flip-container:hover .verco-front {
+	    transform: rotateY(180deg);
+	}
+
+.verco-flip-container, .verco-front, .verco-back {
+	width: 320px;
+	height: 300px;
+}
+
+/* flip speed goes here */
+.verco-flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+}
+
+/* hide back of pane during swap */
+.verco-front, .verco-back {
+	backface-visibility: hidden;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/*  UPDATED! front pane, placed above back */
+.verco-front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.verco-back {
+	transform: rotateY(-180deg);
+}
+
+/* additional styles for the back */
+.verco-back {
+	background-color: rgba(246,246,246,1);
+	padding-top: 2em;
+}
+
+
+/*
+ * Tiles on the services page -
+ *            1. background color hover effect used to highlight current column
+ *            2. zoom transition (cannot apply to homepage as interferes with flipping
+ */
+.verco-table-row-title {
+	font-size: large;
+}
+.verco-tick {
+	text-align: center;
+	font-size: large;
+}
+
+.verco-tile {  /* consider rename */
+	text-align: center;
+	color: white;
+}
+
+.verco-service-tile-text {
+	font-family: 'Open Sans';
+    font-size: xx-large;	
+}
+
+.verco-service-table-hover{
+			background-color: rgba(237, 237, 237, 1); 
+}
+
+.verco-service-tile-img-container {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+
+.verco-service-tile img{
+		-webkit-transition: transform 0.2s ease-in-out;
+		-moz-transition: transform 0.2s ease-in-out;
+		-ms-transition: transform 0.2s ease-in-out;
+		-o-transition: transform 0.2s ease-in-out;
+		transition: transform 0.2s ease-in-out;
+}
+.verco-service-tile img:hover {
+		-webkit-transform: scale(1.3);
+		-moz-transform: scale(1.3);
+		-ms-transform: scale(1.3);
+		-o-transform: scale(1.3);
+		transform: scale(1.3);
+}
+
